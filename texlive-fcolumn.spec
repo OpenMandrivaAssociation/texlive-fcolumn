@@ -1,6 +1,6 @@
 Name:		texlive-fcolumn
-Version:	61855
-Release:	2
+Version:	67729
+Release:	1
 Summary:	Typesetting financial tables
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/fcolumn
