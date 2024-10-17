@@ -3,7 +3,7 @@ Version:	67729
 Release:	1
 Summary:	Typesetting financial tables
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/fcolumn
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/fcolumn
 License:	lppl1.3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fcolumn.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fcolumn.doc.r%{version}.tar.xz
