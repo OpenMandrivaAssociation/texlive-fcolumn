@@ -1,42 +1,27 @@
-Name:		texlive-fcolumn
-Version:	67729
-Release:	1
+%global tl_name fcolumn
+%global tl_revision 79461
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.5
+Release:	%{tl_revision}.1
 Summary:	Typesetting financial tables
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/fcolumn
 License:	lppl1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fcolumn.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fcolumn.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/fcolumn.source.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/fcolumn.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/fcolumn.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/fcolumn.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-In financial reports, text and currency amounts are regularly
-put in one table, e.g., a year balance or a profit-and-loss
-overview. This package provides the settings for automatically
-typesetting such columns, including the sum line (preceded by a
-rule of the correct width) using the specifier "f".
+In financial reports, text and currency amounts are regularly put in one
+table, e.g., a year balance or a profit-and-loss overview. This package
+provides the settings for automatically typesetting such columns,
+including the sum line (preceded by a rule of the correct width) using
+the specifier "f".
 
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%doc %{_texmfdistdir}/source/latex/fcolumn
-%{_texmfdistdir}/tex/latex/fcolumn
-%doc %{_texmfdistdir}/doc/latex/fcolumn
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
